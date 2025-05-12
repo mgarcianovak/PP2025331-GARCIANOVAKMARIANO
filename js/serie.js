@@ -40,18 +40,21 @@ export class Serie {
         lang.textContent = `Idioma: ${this.language}`;
 
         const genres = document.createElement("p");
-        genres.className = "card-text text-muted";
+        genres.className = "card-text";
         genres.textContent = `Géneros: ${this.genres.join(", ")}`;
-
-        const boton = document.createElement("button");
-        boton.textContent = "Guardar";
-        boton.className = "btn btn-primary mt-2";
-        boton.addEventListener("click", () => Serie.guardarSerie(this));
 
         body.appendChild(title);
         body.appendChild(lang);
         body.appendChild(genres);
-        body.appendChild(boton);
+
+        if (!window.location.href.includes("guardados.html")) {
+            const boton = document.createElement("button");
+            boton.textContent = "Guardar";
+            boton.className = "btn btn-primary mt-2";
+            boton.addEventListener("click", () => Serie.guardarSerie(this));
+            body.appendChild(boton);
+        }
+
         div.appendChild(img);
         div.appendChild(body);
 
@@ -66,7 +69,7 @@ export class Serie {
             localStorage.setItem(clave, JSON.stringify(guardadas));
             alert("Serie guardada exitosamente.");
         } else {
-            alert("¡Ya guardaste esta serie!");
+            alert("La serie ya esta guardada.");
         }
     }
 }
