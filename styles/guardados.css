@@ -10,16 +10,16 @@ header {
 }
 
 #botones {
-  grid-row: 1; /* Los botones ocupan la primera fila */
+  grid-row: 1;
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
 #series {
-  grid-row: 2; /* Las series ocupan la segunda fila */
+  grid-row: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas por defecto */
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
